@@ -120,20 +120,67 @@ const nums = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
 
 //your code...
 
-
+for (let i = 0; i < nums.length; i += 3) {
+    console.log(nums[i]);
+  }
 
 // Problem 9:
 const foodArray = [ 'potatoes', 'tamales', 'lemon','strawberries','chocolate', 'pudding', {school : 'TEKcamp'} ];
 //access the value of the last element of the array and set it to a variable called school.  print the school variable to the console.
+
+//your code...
+
+let school = foodArray[foodArray.length - 1].school;
+console.log(school);
 
 const adjectiveArray = [ 'salty', 'spicy', 'sour', 'sweet', 'rich','creamy','amazing'];
 // Using both nameArray and adjectiveArray, make a
 // "for" loop that console.log()'s a sentence for each
 // corresponding value in the arrays. Add the word "is" or "are" depending on if the food is singular or plural.  "Potatoes are salty", "Lemon is sour".
 
+//your code...
+
+for (let i = 0; i < foodArray.length; i++) {
+    let result = "";
+    if(i == foodArray.length - 1) {
+    result += foodArray[i].school + ' is ' + adjectiveArray[i]
+   } else {
+    result += foodArray[i] + (foodArray[i][foodArray[i].length - 1] == 's' ? ' are ' : ' is ') + adjectiveArray[i];
+   }
+    console.log(result);
+  }
+
+
 /************************************************************* */
 // Bonus Assignment: Create 4 mathematical function expressions, add,subtract,multiply,divide.  put them in an array, and create a doMath() function that randomly does one of the 4 operations whenever it is run.  the doMath() function should print out what mathetmatical function was carried out.  The doMath() function should return the computed value of any operation performed.
+
 const operations = [];
-function doMath() {};
+
+let add = function(a,b) {
+  console.log("Running addition");
+  return a + b;
+}
+
+let sub = function(a,b) {
+  console.log("Running subtraction");
+  return a - b;
+}
+
+let mul = function(a,b) {
+  console.log("Running multiplication");
+  return a * b;
+}
+
+let div = function(a,b) {
+  console.log("Running division");
+  return a / b;
+}
+
+operations.push(add, sub, mul, div);
+
+function doMath(a,b) {
+  let r = Math.floor(Math.random() * 4);
+  return operations[r](a, b);
+};
 
 
