@@ -7,10 +7,19 @@
 
 //your code...
 
-
-
-
-
+let farToCel = function(f) {
+    let cel;
+    let far = f;
+    cel = ((f - 32)*5)/9;
+    console.log(cel);
+  }
+  
+  let celToFar = function(c) {
+    let far;
+    let cel = c;
+    far = (c * (9/5)) + 32;
+    console.log(far);
+  }
 
 /************************************************************* */
 // Problem 2:
@@ -18,11 +27,14 @@
 
 //your code...
 
-
-
-
-
-
+let canVote = function(a) {
+    let age = a;
+    if (a >= 18) {
+      console.log("yes");
+    } else {
+      console.log("no");
+    }
+  }
 
 /************************************************************* */
 // Problem 3:
@@ -30,11 +42,11 @@
 
 //your code...
 
-
-
-
-
-
+let splitAndRejoin = function() {
+    let str = "The five boxing wizards jump quickly.";
+    let arr = str.split(" ");
+    let newStr = arr.join(" ");
+  }
 
 /************************************************************* */
 // Problem 4:
@@ -42,9 +54,13 @@
 
 //your code...
 
-
-
-
+let reverseNumber = function() {
+    let phone = 1234567890;
+    let phoneText = phone.toString();
+    let phoneChars = phoneText.split("");
+    let phoneRev = phoneChars.reverse();
+    let phoneRevFinal = phoneRev.join("");
+  }
 
 /************************************************************* */
 // Problem 5:
@@ -52,10 +68,15 @@
 
 //your code...
 
-
-
-
-
+let carMaker = function(year, color, make, model) {
+    let car = {
+      year,
+      color,
+      make,
+      model
+    };
+    return car;
+  }
 
 /************************************************************* */
 // Problem 6:
@@ -64,8 +85,13 @@
 
 //your code...
 
-
-
+for (let i = 0; i <= 15; i++) {
+    if (i % 2 === 0) {
+      console.log("Even")
+    } else {
+      console.log("Odd")
+    }
+  }
 
 /************************************************************* */
 // Problem 7:
@@ -73,6 +99,17 @@
 
 //your code...
 
+for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("TEKcamp");
+    } else if (i % 3 === 0) {
+      console.log("TEK");
+    } else if (i % 5 === 0) {
+      console.log("camp");
+    } else {
+      console.log(i);
+    }
+  }
 
 /************************************************************* */
 // Problem 8:
