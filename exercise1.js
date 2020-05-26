@@ -183,4 +183,6 @@ function doMath(a,b) {
   return operations[r](a, b);
 };
 
+console.log(doMath(1,2));
+
 
