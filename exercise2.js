@@ -11,6 +11,11 @@ for(let i=0; i<10; i++) {
 
 //your code...
 
+let i = 0
+while (i < 10) {
+  console.log(" the value of i in the loop is : " + i);
+  i++;
+}
 
 
 
@@ -20,6 +25,25 @@ for(let i=0; i<10; i++) {
 //use javascript to compute the value of the above statement. Each individual operation needs to be a function expression. run all the functions after defining them, and print the answer to the console.
 
 //your code...
+
+let add = function(x,y) {
+    return x + y;
+  }
+  
+  let multiply = function(x,y) {
+    return x * y;
+  }
+  
+  let divide = function(x,y) {
+    return x / y;
+  }
+  
+  let result = add(30, 2);
+  result = multiply(result, 20);
+  result = divide(result, multiply(10,10));
+  
+  console.log(result);
+
 
 
 /************************************************************* */
@@ -46,39 +70,64 @@ for(let i=0; i<10; i++) {
 // Problem 4:
 // Refactor the following code using a switch statement:
 
+// const day = "friday";
+
+// if(day === "monday") {
+//     console.log("we got a long week ahead of us...");
+// } else if(day === "tuesday") {
+//     console.log("tuesday's are still beterr than mondays, but LONG way to go still");
+// } else if (day === "wednesday") {
+//     console.log("We are smack dab in the middle of the week");
+// } else if (day === "thursday") {
+//     console.log("Thursday night... the mood is right");
+// } else if (day === "friday") {
+//     console.log("TGIF.  Friday truly is the best day of the week!")
+// } else {
+//     console.log("It's a weekend!")
+// }
+
 const day = "friday";
 
-if(day === "monday") {
+switch (day) {
+  case "monday":
     console.log("we got a long week ahead of us...");
-} else if(day === "tuesday") {
+    break;
+  case "tuesday":
     console.log("tuesday's are still beterr than mondays, but LONG way to go still");
-} else if (day === "wednesday") {
+    break;
+  case "wednesday":
     console.log("We are smack dab in the middle of the week");
-} else if (day === "thursday") {
+    break;
+  case "thursday":
     console.log("Thursday night... the mood is right");
-} else if (day === "friday") {
-    console.log("TGIF.  Friday truly is the best day of the week!")
-} else {
-    console.log("It's a weekend!")
+    break;
+  case "friday":
+    console.log("TGIF.  Friday truly is the best day of the week!");
+    break;
+  default:
+    console.log("It's a weekend!");
 }
-
-
 
 /************************************************************* */
 // Problem 5: Refactor the following functions to use a ternary expression:
 const age = 10;
-if (age > 21) console.log("adult"); else {
-    console.log("minor");
-}
+// if (age > 21) console.log("adult"); else {
+//     console.log("minor");
+// }
 
-if (age > 13 && age < 19) console.log('teen'); else {
-    console.log("not a teenager");
-};
+age > 21 ? console.log("adult") : console.log("minor");
 
-if (age > 65) console.log("retired"); else {
-    console.log("still working...");
-}
+// if (age > 13 && age < 19) console.log('teen'); else {
+//     console.log("not a teenager");
+// };
 
+age > 13 && age < 19 ? console.log('teen') : console.log("not a teenager");
+
+// if (age > 65) console.log("retired"); else {
+//     console.log("still working...");
+// }
+
+age > 65 ? console.log("retired") : console.log("still working...");
 
 /************************************************************* */
 // Problem 6: Create an object literal that represents yourself.  set it to a variable that appropriately describes the object.  Include the following properties:
