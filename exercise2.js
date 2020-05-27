@@ -51,18 +51,40 @@ let add = function(x,y) {
 //Determine whether the following values are "truthy" or "falsy".  console.log() the value, whether the value is 'truthy' or 'falsy', along with your reasoning why using String interpolation.
 // values : 
 // 20
-// 0
-// "zero";
-// const zero = 20;
-// null
-// "0"
-// !""
-// {}
-// () => {console.log("hello TEKcamp!");
-// 125
-// undefined
-// ""
+console.log(`20 is ${!!20 == true} because positive nonzero numbers are truthy`);
 
+// 0
+console.log(`0 is ${!!0 == true} because zeros are falsy`);
+
+// "zero";
+console.log(`"zero" is ${!!"zero" == true} because strings are truthy`);
+
+// const zero = 20;
+
+
+// null
+console.log(`null is ${!!null == true} because null is always falsy`);
+
+// "0"
+console.log(`"0" is ${!!"0" == true} because strings are truthy`);
+
+// !""
+
+
+// {}
+
+
+// () => {console.log("hello TEKcamp!");
+console.log(`() => {console.log("hello TEKcamp!"); is ${!!(() => {console.log("hello TEKcamp!");})} because functions are truthy`);
+
+// 125
+console.log(`125 is ${!!125 == true} because positive nonzero numbers are truthy`);
+
+// undefined
+console.log(`undefined is ${!!undefined == true} because undefined is always falsy`);
+
+// ""
+console.log(`"" is ${!!("") == true} because empty strings are falsy`);
 
 
 
@@ -146,12 +168,45 @@ age > 65 ? console.log("retired") : console.log("still working...");
 
 //your code...
 
+let phoenix = {
+    name: "Phoenix",
+    age: 36,
+    gender: "Female",
+    hobbies: ["yoga", "reading", "coding"],
+    profession: "Student",
+    education: "Bachelors",
+    learn: function() {
+      console.log(this.name);
+    },
+    calcBirthYear: function() {
+      console.log(2020 - this.age);
+    }
+}
+
+phoenix.learn();
+phoenix.calcBirthYear();
 
 /************************************************************* */
 // Problem 6: Create an object literal that represents any object in the real world that you like.  Try to come up with a realistic set of properties and methods that would accurately describe that object.  In at least one of your methods, use the this keyword to refer back to one of the properties you defined on this object literal.  
 
 //your code...
 
+let animal = {
+    species: "Cat",
+    gender: "Male",
+    name: "Bughuul",
+    yearBorn: 2018,
+    calcAge: function() {
+      console.log(2020 - this.yearBorn);
+    },
+    isJerk: function() {
+      if (this.species == "Cat")
+      console.log("Jerk");
+    }
+  }
+  
+  animal.calcAge();
+  animal.isJerk();
 
 
 /************************************************************* */
