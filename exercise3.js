@@ -8,8 +8,13 @@
 
 
 //your code...
-
-
+let emptyOrNot = function(str) {
+    if (str === "") {
+        console.log("True");
+    } else {
+        console.log("False");
+    }
+}
 
 
 
@@ -21,6 +26,9 @@
 
 
 //your code...
+let str = "Learning Javascript is fun!";
+let change = str.replace("fun", "cool");
+
 
 
 
@@ -33,9 +41,12 @@
 
 //your code...
 
+function squared() {
+    let arr = [1, 2, 3, 4, 5];
+    return arr.map(v => v**2)
+  }
 
-
-
+  console.log(squared())
 
 
 /************************************************************* */
@@ -46,7 +57,13 @@
 
 //your code...
 
+let arr = [1, 3, 5, 7, 9, 1, 3, 5]
 
+function myFilter() {
+    return arr.filter(v => v > 3)
+  }
+
+  console.log(myFilter());
 
 
 
@@ -59,8 +76,13 @@
 
 //your code...
 
+const arr = [1, 2, 3, 4, 5];
 
+const total = arr.reduce((a, v) => {
+    return a + v;
+})
 
+console.log(total());
 
 
 
