@@ -92,11 +92,28 @@ console.log(total());
 
 // Write a function that takes in a DNA string as a parameter and returns an array with the complementary strand. For example, a string of "GCTA" would return an array of ["C", "G", "A", "T"].  
 
-
-
 //your code...
 
-
+let dnaPair = function(str) {
+    const inArr = str.split('')
+    return inArr.map(v => {
+     switch(v) {
+      case 'G':
+       return 'C'
+      case 'C':
+       return 'G'
+      case 'A':
+       return 'T'
+      case 'T':
+       return 'A'
+      default:
+       console.log('Invalid input')
+       return
+     }
+    })
+   }
+   
+   console.log(dnaPair("GCTA"));
 
 
 
@@ -107,15 +124,25 @@ console.log(total());
 // 7.a - Write a function to find the maximum numerical value of the given array.  Get rid of any non numerical values.  Convert the strings that are numbers to an actual number data type.  ("one" => 1) ("1" => 1).  Use array methods to perform this task.  
 const numbers = [2,23,1,2,1,1,1,2,2.5,20,200,2000,,{k:1},20000,19999,1878,140,23,4,"sk",true,true,"true-dat","nice","one","two","three","3","tea",[]];
 
-function maxNumber(numbers) {
-    //your code...
-}
+const translator = (arr) => {
+    let numArr = ["one", "two", "three", "four", "five"]
+    return arr.map(v => parseInt(v) || numArr.indexOf(v) +1 || v)
+   }
+  
+  function maxNumber(numbers) {
+      return Math.max(...(translator(numbers).filter(v => typeof v === "number")));
+  
+  }
+  
+  console.log(maxNumber([2,23,1,2,1,1,1,2,2.5,20,200,2000,,{k:1},20000,19999,1878,140,23,4,"sk",true,true,"true-dat","nice","one","two","three","3","tea",[]]));
 
 // 7.b -Write a function that sorts the given numbers array.  Allow the function to sort the array in descending order
 
 function sortNums(numbers,desc=false) {
-    //your code...
-};
+    return translator(numbers).filter(v => typeof v === "number").sort(function(a, b){return desc ? b - a : a - b});
+  };
+  
+  console.log(sortNums([2,23,1,2,1,1,1,2,2.5,20,200,2000,,{k:1},20000,19999,1878,140,23,4,"sk",true,true,"true-dat","nice","one","two","three","3","tea",[]], true));
 
 
 
@@ -129,7 +156,7 @@ mapObj.set({company : "TEKsystems"},"object");
 
 
 console.log(mapObj.has({company : "TEKsystems"}));  
-//The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  Refactor the code on line 106, so you can successfully check to see if {company : "TEKsystems"} exists in the mapObj.
+//The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  Refactor the code on mapObj.set({company : "TEKsystems"},"object");, so you can successfully check to see if {company : "TEKsystems"} exists in the mapObj.
 
 //your code...
 
@@ -142,16 +169,29 @@ console.log(mapObj.has({company : "TEKsystems"}));
 let ones = [1,11,111,1111,11111,111111,1111111,11111111,111111111,1111111111];
 //reverse the array, without modifying the ones array.
 
+let newArr = ones.slice().reverse();
+
+console.log(newArr);
+
 
 /************************************************************* */
 //Problem 12:
 //create a function called performer(cb) that takes in a callback function and runs that callback function.  It should return the output of the callback function.
 
 function performer(cb) {
-    //code goes here
+    return cb();
 }
 
 
 /************************************************************* */
 //Bonus assignment:
 //research a new feature of ES6+ and create an example of it's use case here.  Be sure to write comments explaining what the feature is and why it is useful.
+
+//I chose the spread operator for my new feature of ES6 to demonstrate. The spread operator allows the user to "spread" an array into separate arguments, or individual pieces, which can be useful in scenarios such as copying or combining arrays, or adding to state in React.
+
+//An example of using the spread operator to copy an array
+
+const groceries = ["Milk", "Eggs", "Butter", "bread"];
+const nextWeekGroceries = [...groceries]
+
+console.log(nextWeekGroceries); //Outputs [ 'Milk', 'Eggs', 'Butter', 'bread' ]
