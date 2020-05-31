@@ -1,2 +1,3 @@
-console.log("time to start the timer!");
+let minutes = 0;
+let seconds = 0;
 
