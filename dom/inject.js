@@ -1,7 +1,7 @@
 /*Exercise instructions : take the html code from the following codepen : https://codepen.io/ayunas-the-scripter/pen/WNQgpqB, and use JavaScript DOM manipulation to inject the html into the inject id element of inject.html
 */
 
-const injection = document.getElementById("inject")
+const injection = document.getElementById("inject");
 
 injection.innerHTML = `<center>
 <h1><i>HTML Practice Exercise TEKcamp.</i></h1>
@@ -18,6 +18,6 @@ injection.innerHTML = `<center>
 <hr />
 <p>My instructor’s email address is: <a href="mailto:ayunas@teksystems.com">ayunas@teksystems.com</a>.</p>
 <h1>Have a great day!</h1>  I really look forward to learning how to code!  Have a great day.  
--[Team "Git'er Done"]
+-[Team "Git'er Done"] </p>
 `
 
