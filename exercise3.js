@@ -153,14 +153,33 @@ function sortNums(numbers,desc=false) {
 
 const mapObj = new Map();
 mapObj.set({company : "TEKsystems"},"object");
+mapObj.set([1, 2, 3], "array");
+mapObj.set("Hello", "string");
+mapObj.set(2, "number");
+mapObj.set(false, "boolean");
 
+console.log(mapObj.has({company : "TEKsystems"})); 
 
-console.log(mapObj.has({company : "TEKsystems"}));  
 //The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  Refactor the code on mapObj.set({company : "TEKsystems"},"object");, so you can successfully check to see if {company : "TEKsystems"} exists in the mapObj.
 
 //your code...
 
+console.log("The above console log returns false because .has is checking for the exact object, not for whether a similar one exists within the object."); 
+
+const mapObj2 = new Map();
+let objectSet = {company : "TEKsystems"};
+mapObj2.set(objectSet, "object")
+
+console.log(mapObj2.has(objectSet));
+
+
 //loop through the mapObj and create a new array of only the data types, leaving out the example keys of the mapObj.  Use array methods to do this.  Example output : ['string',number','boolean',array','object']
+
+let valueArr = [];
+mapObj.forEach(e => valueArr.push(e))
+
+console.log(valueArr);
+console.log("Drops mic");
 
 
 /************************************************************* */
