@@ -8,8 +8,13 @@
 
 
 //your code...
-
-
+let emptyOrNot = function(str) {
+    if (str === "") {
+        console.log("True");
+    } else {
+        console.log("False");
+    }
+}
 
 
 
@@ -21,6 +26,9 @@
 
 
 //your code...
+let str = "Learning Javascript is fun!";
+let change = str.replace("fun", "cool");
+
 
 
 
@@ -33,9 +41,12 @@
 
 //your code...
 
+function squared() {
+    let arr = [1, 2, 3, 4, 5];
+    return arr.map(v => v**2)
+  }
 
-
-
+  console.log(squared())
 
 
 /************************************************************* */
@@ -46,7 +57,13 @@
 
 //your code...
 
+let arr = [1, 3, 5, 7, 9, 1, 3, 5]
 
+function myFilter() {
+    return arr.filter(v => v > 3)
+  }
+
+  console.log(myFilter());
 
 
 
@@ -59,8 +76,13 @@
 
 //your code...
 
+const arr = [1, 2, 3, 4, 5];
 
+const total = arr.reduce((a, v) => {
+    return a + v;
+})
 
+console.log(total());
 
 
 
@@ -70,11 +92,28 @@
 
 // Write a function that takes in a DNA string as a parameter and returns an array with the complementary strand. For example, a string of "GCTA" would return an array of ["C", "G", "A", "T"].  
 
-
-
 //your code...
 
-
+let dnaPair = function(str) {
+    const inArr = str.split('')
+    return inArr.map(v => {
+     switch(v) {
+      case 'G':
+       return 'C'
+      case 'C':
+       return 'G'
+      case 'A':
+       return 'T'
+      case 'T':
+       return 'A'
+      default:
+       console.log('Invalid input')
+       return
+     }
+    })
+   }
+   
+   console.log(dnaPair("GCTA"));
 
 
 
@@ -85,15 +124,25 @@
 // 7.a - Write a function to find the maximum numerical value of the given array.  Get rid of any non numerical values.  Convert the strings that are numbers to an actual number data type.  ("one" => 1) ("1" => 1).  Use array methods to perform this task.  
 const numbers = [2,23,1,2,1,1,1,2,2.5,20,200,2000,,{k:1},20000,19999,1878,140,23,4,"sk",true,true,"true-dat","nice","one","two","three","3","tea",[]];
 
-function maxNumber(numbers) {
-    //your code...
-}
+const translator = (arr) => {
+    let numArr = ["one", "two", "three", "four", "five"]
+    return arr.map(v => parseInt(v) || numArr.indexOf(v) +1 || v)
+   }
+  
+  function maxNumber(numbers) {
+      return Math.max(...(translator(numbers).filter(v => typeof v === "number")));
+  
+  }
+  
+  console.log(maxNumber([2,23,1,2,1,1,1,2,2.5,20,200,2000,,{k:1},20000,19999,1878,140,23,4,"sk",true,true,"true-dat","nice","one","two","three","3","tea",[]]));
 
 // 7.b -Write a function that sorts the given numbers array.  Allow the function to sort the array in descending order
 
 function sortNums(numbers,desc=false) {
-    //your code...
-};
+    return translator(numbers).filter(v => typeof v === "number").sort(function(a, b){return desc ? b - a : a - b});
+  };
+  
+  console.log(sortNums([2,23,1,2,1,1,1,2,2.5,20,200,2000,,{k:1},20000,19999,1878,140,23,4,"sk",true,true,"true-dat","nice","one","two","three","3","tea",[]], true));
 
 
 
@@ -104,14 +153,33 @@ function sortNums(numbers,desc=false) {
 
 const mapObj = new Map();
 mapObj.set({company : "TEKsystems"},"object");
+mapObj.set([1, 2, 3], "array");
+mapObj.set("Hello", "string");
+mapObj.set(2, "number");
+mapObj.set(false, "boolean");
 
+console.log(mapObj.has({company : "TEKsystems"})); 
 
-console.log(mapObj.has({company : "TEKsystems"}));  
-//The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  Refactor the code on line 106, so you can successfully check to see if {company : "TEKsystems"} exists in the mapObj.
+//The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  Refactor the code on mapObj.set({company : "TEKsystems"},"object");, so you can successfully check to see if {company : "TEKsystems"} exists in the mapObj.
 
 //your code...
 
+console.log("The above console log returns false because .has is checking for the exact object, not for whether a similar one exists within the object."); 
+
+const mapObj2 = new Map();
+let objectSet = {company : "TEKsystems"};
+mapObj2.set(objectSet, "object")
+
+console.log(mapObj2.has(objectSet));
+
+
 //loop through the mapObj and create a new array of only the data types, leaving out the example keys of the mapObj.  Use array methods to do this.  Example output : ['string',number','boolean',array','object']
+
+let valueArr = [];
+mapObj.forEach(e => valueArr.push(e))
+
+console.log(valueArr);
+console.log("Drops mic");
 
 
 /************************************************************* */
@@ -120,16 +188,29 @@ console.log(mapObj.has({company : "TEKsystems"}));
 let ones = [1,11,111,1111,11111,111111,1111111,11111111,111111111,1111111111];
 //reverse the array, without modifying the ones array.
 
+let newArr = ones.slice().reverse();
+
+console.log(newArr);
+
 
 /************************************************************* */
 //Problem 12:
 //create a function called performer(cb) that takes in a callback function and runs that callback function.  It should return the output of the callback function.
 
 function performer(cb) {
-    //code goes here
+    return cb();
 }
 
 
 /************************************************************* */
 //Bonus assignment:
 //research a new feature of ES6+ and create an example of it's use case here.  Be sure to write comments explaining what the feature is and why it is useful.
+
+//I chose the spread operator for my new feature of ES6 to demonstrate. The spread operator allows the user to "spread" an array into separate arguments, or individual pieces, which can be useful in scenarios such as copying or combining arrays, or adding to state in React.
+
+//An example of using the spread operator to copy an array
+
+const groceries = ["Milk", "Eggs", "Butter", "bread"];
+const nextWeekGroceries = [...groceries]
+
+console.log(nextWeekGroceries); //Outputs [ 'Milk', 'Eggs', 'Butter', 'bread' ]
